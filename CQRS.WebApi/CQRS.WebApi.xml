@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyCrudAppAspDotNetCore.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Infrastructure.Features.InventoryFeatures.Queries.GetInventoryByIdQuery.GetInventoryByIdQueryHandler.Handle(MyCrudAppAspDotNetCore.WebApi.Infrastructure.Features.InventoryFeatures.Queries.GetInventoryByIdQuery,System.Threading.CancellationToken)">
+            <summary>
+            handler for get inventory by Id
+            </summary>
+            <param name="query"></param>
+            <param name="cancellationToken"></param>
+            <returns>Inventory</returns>
+        </member>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.Create(MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.Commands.CreateInventoryCmd)">
+            <summary>
+            Creates a New Inventory.
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.GetAll">
+            <summary>
+            Gets all Inventorys.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.GetById(System.Guid)">
+            <summary>
+            Gets Inventory Entity by Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.Delete(System.Guid)">
+            <summary>
+            Deletes Inventory Entity based on Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.Update(System.Guid,MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands.UpdateInventoryCmd)">
+            <summary>
+            Updates the Inventory Entity based on Id.   
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.Commands.CreateInventoryCmd.CreateProductCommandHandler">
+            <summary>
+            handlers class
+            </summary>
+        </member>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.Commands.CreateInventoryCmd.CreateProductCommandHandler.Handle(MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.Commands.CreateInventoryCmd,System.Threading.CancellationToken)">
+            <summary>
+            handler for create inventory
+            </summary>
+            <param name="command"></param>
+            <param name="cancellationToken"></param>
+            <returns>Guid</returns>
+        </member>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.Queries.GetInventoryListQuery.GetInventoryListQueryHandler.Handle(MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.Queries.GetInventoryListQuery,System.Threading.CancellationToken)">
+            <summary>
+            Get Inventory List
+            </summary>
+            <param name="query"></param>
+            <param name="cancellationToken"></param>
+            <returns>List of Inventories</returns>
+        </member>
+        <member name="T:MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands.DeleteInventoryByIdCmd.DeleteProductByIdCommandHandler">
+            <summary>
+            Inventory Delete handler
+            </summary>
+        </member>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands.DeleteInventoryByIdCmd.DeleteProductByIdCommandHandler.Handle(MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands.DeleteInventoryByIdCmd,System.Threading.CancellationToken)">
+            <summary>
+            handler for delete inventory
+            </summary>
+            <param name="command"></param>
+            <param name="cancellationToken"></param>
+            <returns>Guid</returns>
+        </member>
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands.UpdateInventoryCmd.UpdateProductCommandHandler.Handle(MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands.UpdateInventoryCmd,System.Threading.CancellationToken)">
+            <summary>
+            handler for update inventory
+            </summary>
+            <param name="command"></param>
+            <param name="cancellationToken"></param>
+            <returns>Guid</returns>
+        </member>
+    </members>
+</doc>
