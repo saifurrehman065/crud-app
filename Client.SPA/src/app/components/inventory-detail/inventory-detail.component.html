@@ -5,16 +5,40 @@
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" formControlName="name" />
+                <div class="text-danger" *ngIf="!name.valid && (name.touched || name.dirty)">
+                    <div *ngIf="name.errors['required']">
+                        Name is required..!
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="price">Price</label>
                 <input type="text" class="form-control" formControlName="price" />
+                <div class="text-danger" *ngIf="!price.valid && (price.touched || price.dirty)">
+                    <div *ngIf="price.errors['required']">
+                        Price is required..!
+                    </div>
+                    <div *ngIf="price.errors['minlength']">
+                        Min length is 2 digits..!
+                    </div>
+                    <div *ngIf="price.errors['maxlength']">
+                        Max 5 digits..!
+                    </div>
+                    <div *ngIf="price.errors['pattern']">
+                        Only integers are allowed..!
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
                 <label>Description</label>
                 <input class="form-control" formControlName="description" />
+                <div class="text-danger" *ngIf="!description.valid && (description.touched || description.dirty)">
+                    <div *ngIf="description.errors['required']">
+                        Description is required..!
+                    </div>
+                </div>
             </div>
 
             <button class="btn btn-danger mr-2" (click)="deleteInventory()">

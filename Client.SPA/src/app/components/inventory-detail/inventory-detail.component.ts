@@ -9,9 +9,13 @@ import { InventoryService } from 'src/app/services/inventory.service';
   styleUrls: ['./inventory-detail.component.css']
 })
 export class InventoryDetailComponent implements OnInit {
+  get name() { return this.currentTutorial.get('name') }
+  get price() { return this.currentTutorial.get('price') }
+  get description() { return this.currentTutorial.get('description') }
+
   public currentTutorial = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-    price: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    price: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern(new RegExp('^[0-9]*$'))]],
     description: ['', [Validators.required]]
   });
 

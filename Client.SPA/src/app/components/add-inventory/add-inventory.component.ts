@@ -9,9 +9,13 @@ import { InventoryService } from 'src/app/services/inventory.service';
 })
 export class AddInventoryComponent implements OnInit {
 
+  get name() { return this.createForm.get('name') }
+  get price() { return this.createForm.get('price') }
+  get description() { return this.createForm.get('description') }
+
   public createForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-    price: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    price: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(5), Validators.pattern(new RegExp('^[0-9]*$'))]],
     description: ['', [Validators.required]]
   });
 
