@@ -1,28 +1,36 @@
 <div style="width: 500px;">
-    <div class="submit-form">
-        <div *ngIf="!submitted">
+    <div *ngIf="!submitted">
+        <form [formGroup]="createForm" (submit)="saveTutorial()">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" required [(ngModel)]="tutorial.name" name="name" />
+                <input type="text" class="form-control" formControlName="name" />
+                <!-- <div class="alert alert-danger" *ngIf="!name.valid && (name.touched || name.dirty)">
+                    <div *ngIf="name.errors['required']">
+                        Name is required..!
+                    </div>
+                </div> -->
             </div>
 
             <div class="form-group">
                 <label for="price">Price</label>
-                <input type="text" class="form-control" id="price" required [(ngModel)]="tutorial.price" name="price" />
+                <input type="text" class="form-control" formControlName="price" />
             </div>
 
             <div class="form-group">
-                <label for="description">Description</label>
-                <input class="form-control" id="description" required [(ngModel)]="tutorial.description"
-                    name="description" />
+                <label>Description</label>
+                <input class="form-control" formControlName="description" />
             </div>
 
-            <button (click)="saveTutorial()" class="btn-sm btn-success">Save</button>
-        </div>
+            <br />
+            <button type="submit" [disabled]="createForm.invalid" class="btn btn-success btn-block">
+                Save
+            </button>
 
-        <div *ngIf="submitted">
-            <h4>Inventory added successfully!</h4>
-            <button class="btn btn-success" (click)="newTutorial()">Add</button>
-        </div>
+        </form>
+    </div>
+
+    <div *ngIf="submitted">
+        <h4>Inventory added successfully!</h4>
+        <button class="btn btn-success" (click)="newTutorial()">Add</button>
     </div>
 </div>

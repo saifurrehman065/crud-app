@@ -1,8 +1,16 @@
-
 #Ignore thumbnails created by Windows
 Thumbs.db
 #Ignore files built by Visual Studio
+**/node_modules
+**/dist
+*report.*
+*.lock.json
+**/.config
+**/properties
+**/wwwroot
 *.obj
+*.jfm
+*.dbmdl
 *.exe
 *.pdb
 *.user

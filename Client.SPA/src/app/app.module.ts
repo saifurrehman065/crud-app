@@ -7,7 +7,7 @@ import { AddInventoryComponent } from './components/add-inventory/add-inventory.
 import { InventoryDetailComponent } from './components/inventory-detail/inventory-detail.component';
 import { InventoryListComponent } from './components/inventory-list/inventory-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

@@ -78,7 +78,7 @@ namespace MyCrudAppAspDotNetCore.WebApi.Controllers
         {
             if (id != command.Id)
             {
-                return BadRequest();
+                return BadRequest("Record not found");
             }
             return Ok(await _mediator.Send(command));
         }

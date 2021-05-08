@@ -13,7 +13,7 @@ namespace MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public decimal Price { get; set; }
+        public string Price { get; set; }
 
         //Handler class
         public class UpdateProductCommandHandler : IRequestHandler<UpdateInventoryCmd, Guid>
@@ -41,7 +41,7 @@ namespace MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands
                 else
                 {
                     inventory.Name = command.Name;
-                    inventory.Price = command.Price;
+                    inventory.Price = Convert.ToDecimal(command.Price);
                     inventory.Description = command.Description;
                     await _context.SaveChangesAsync();
                     return inventory.Id;
