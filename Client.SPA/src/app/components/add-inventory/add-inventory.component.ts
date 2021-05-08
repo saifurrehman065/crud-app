@@ -28,6 +28,7 @@ export class AddInventoryComponent implements OnInit {
   saveTutorial(): void {
     if (this.createForm.valid) {
       const model = this.createForm.value;
+      model.price = this.createForm.controls.price.value.toString();
       this.inventoryService.create(model)
         .subscribe(
           response => {
