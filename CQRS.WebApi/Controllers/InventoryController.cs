@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System;
 using MyCrudAppAspDotNetCore.WebApi.Domain.Models;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace MyCrudAppAspDotNetCore.WebApi.Controllers
 {
@@ -29,9 +30,9 @@ namespace MyCrudAppAspDotNetCore.WebApi.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateInventoryCmd command)
+        public async Task<IActionResult> Create([FromBody] CreateInventoryCmd command, CancellationToken cancellationToken)
         {
-            return Ok(await _mediator.Send(command));
+            return Ok(await _mediator.Send(command, cancellationToken));
         }
 
         /// <summary>
@@ -39,9 +40,9 @@ namespace MyCrudAppAspDotNetCore.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IEnumerable<Inventory>> GetAll()
+        public async Task<IEnumerable<Inventory>> GetAll(CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetInventoryListQuery());
+            var result = await _mediator.Send(new GetInventoryListQuery(), cancellationToken);
             return result;
         }
 
@@ -51,9 +52,9 @@ namespace MyCrudAppAspDotNetCore.WebApi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(Guid id, CancellationToken cancellationToken)
         {
-            return Ok(await _mediator.Send(new GetInventoryByIdQuery { Id = id }));
+            return Ok(await _mediator.Send(new GetInventoryByIdQuery { Id = id }, cancellationToken));
         }
 
         /// <summary>
@@ -62,9 +63,9 @@ namespace MyCrudAppAspDotNetCore.WebApi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id, CancellationToken cancellationToken)
         {
-            return Ok(await _mediator.Send(new DeleteInventoryByIdCmd { Id = id }));
+            return Ok(await _mediator.Send(new DeleteInventoryByIdCmd { Id = id }, cancellationToken));
         }
 
         /// <summary>
@@ -74,13 +75,13 @@ namespace MyCrudAppAspDotNetCore.WebApi.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateInventoryCmd command)
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateInventoryCmd command, CancellationToken cancellationToken)
         {
             if (id != command.Id)
             {
                 return BadRequest();
             }
-            return Ok(await _mediator.Send(command));
+            return Ok(await _mediator.Send(command, cancellationToken));
         }
     }
 }

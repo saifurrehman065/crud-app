@@ -11,7 +11,7 @@ namespace MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.C
     {
         //commands
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public string Price { get; set; }
         public string Description { get; set; }
 
         /// <summary>
@@ -37,10 +37,10 @@ namespace MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.C
 
                 inventory.Id = Guid.NewGuid();
                 inventory.Name = command.Name;
-                inventory.Price = command.Price;
+                inventory.Price = Convert.ToDecimal(command.Price);
                 inventory.Description = command.Description;
                 inventory.CreatedOn = DateTime.UtcNow;
-                _context.Inventories.Add(inventory);
+                await _context.Inventories.AddAsync(inventory, cancellationToken);
                 await _context.SaveChangesAsync();
 
                 return inventory.Id;
