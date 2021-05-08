@@ -7,11 +7,11 @@ namespace MyCrudAppAspDotNetCore.WebApi.Validators
     {
         public CreateInventoryCmdValidator()
         {
-            //RuleFor(c => c.Name)
-            //        .NotEmpty();
+            RuleFor(c => c.Name)
+                    .NotEmpty();
 
-            //RuleFor(c => c.Price)
-            //        .NotEmpty();
+            RuleFor(c => c.Price)
+                    .NotEmpty();
 
         }
     }
