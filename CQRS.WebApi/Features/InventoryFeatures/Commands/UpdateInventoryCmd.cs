@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands
 {
@@ -32,7 +33,8 @@ namespace MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands
             /// <returns>Guid</returns>
             public async Task<Guid> Handle(UpdateInventoryCmd command, CancellationToken cancellationToken)
             {
-                var inventory = _context.Inventories.Where(a => a.Id == command.Id).FirstOrDefault();
+                var inventory = await _context.Inventories.Where(a => a.Id == command.Id)
+                    .FirstOrDefaultAsync(cancellationToken);
 
                 if (inventory == null)
                 {

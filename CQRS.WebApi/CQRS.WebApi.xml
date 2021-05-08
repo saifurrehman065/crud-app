@@ -12,34 +12,34 @@
             <param name="cancellationToken"></param>
             <returns>Inventory</returns>
         </member>
-        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.Create(MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.Commands.CreateInventoryCmd)">
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.Create(MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.Commands.CreateInventoryCmd,System.Threading.CancellationToken)">
             <summary>
             Creates a New Inventory.
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.GetAll">
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.GetAll(System.Threading.CancellationToken)">
             <summary>
             Gets all Inventorys.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.GetById(System.Guid)">
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.GetById(System.Guid,System.Threading.CancellationToken)">
             <summary>
             Gets Inventory Entity by Id.
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.Delete(System.Guid)">
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.Delete(System.Guid,System.Threading.CancellationToken)">
             <summary>
             Deletes Inventory Entity based on Id.
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.Update(System.Guid,MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands.UpdateInventoryCmd)">
+        <member name="M:MyCrudAppAspDotNetCore.WebApi.Controllers.InventoryController.Update(System.Guid,MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands.UpdateInventoryCmd,System.Threading.CancellationToken)">
             <summary>
             Updates the Inventory Entity based on Id.   
             </summary>

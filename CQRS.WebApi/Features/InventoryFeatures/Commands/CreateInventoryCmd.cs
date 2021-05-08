@@ -40,7 +40,7 @@ namespace MyCrudAppAspDotNetCore.WebApi.Application.Features.InventoryFeatures.C
                 inventory.Price = Convert.ToDecimal(command.Price);
                 inventory.Description = command.Description;
                 inventory.CreatedOn = DateTime.UtcNow;
-                _context.Inventories.Add(inventory);
+                await _context.Inventories.AddAsync(inventory, cancellationToken);
                 await _context.SaveChangesAsync();
 
                 return inventory.Id;

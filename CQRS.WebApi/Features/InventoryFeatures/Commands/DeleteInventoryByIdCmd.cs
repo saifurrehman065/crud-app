@@ -33,7 +33,9 @@ namespace MyCrudAppAspDotNetCore.WebApi.Features.InventoryFeatures.Commands
             /// <returns>Guid</returns>
             public async Task<Guid> Handle(DeleteInventoryByIdCmd command, CancellationToken cancellationToken)
             {
-                var inventory = await _context.Inventories.Where(a => a.Id == command.Id).FirstOrDefaultAsync();
+                var inventory = await _context.Inventories.Where(a => a.Id == command.Id)
+                    .FirstOrDefaultAsync(cancellationToken);
+                
                 if (inventory == null) return default;
                 _context.Inventories.Remove(inventory);
                 await _context.SaveChangesAsync();
